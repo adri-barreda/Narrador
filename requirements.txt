@@ -1,0 +1,5 @@
+Flask
+openai
+pydub
+requests
+beautifulsoup4

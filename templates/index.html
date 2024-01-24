@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Traductor y Lector TTS</title>
+    <!-- Incluir Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Degradado de fondo */
+            color: white; /* Color del texto */
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+            padding: 20px;
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+        .btn-primary {
+            background-color: #667eea; /* Color personalizado para botón */
+            border-color: #667eea;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #4a00e0; /* Color del título */
+            font-weight: 600;
+        }
+        label {
+          color: #4a00e0; /* Color oscuro para contraste */
+          font-weight: 700; /* Hacer el texto más grueso */
+          margin-bottom: 5px; /* Espaciado debajo de la etiqueta */
+        }
+        p {
+          color: #667eea;
+        }
+
+      @media (max-width: 768px) {
+          .container {
+              padding: 10px; /* Padding reducido */
+              margin-top: 20px; /* Margen superior reducido */
+              margin-bottom: 20px; /* Margen inferior para evitar cortes */
+          }
+          h1 {
+              font-size: 1.25rem; /* Tamaño de fuente reducido para el título */
+          }
+          .form-group label, .form-group input, .form-group textarea {
+              font-size: 0.85rem; /* Tamaño de fuente más pequeño para el formulario */
+          }
+          .form-group input, .form-group textarea {
+              padding: 8px; /* Padding reducido para los campos de entrada */
+          }
+          .btn-primary {
+              padding: 8px 16px; /* Padding reducido para el botón */
+              font-size: 0.9rem; /* Tamaño de fuente más pequeño para el botón */
+          }
+      }
+
+      
+      
+        /* Estilos adicionales */
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Tu Asistente de Traducción y Lectura</h1>
+    <p class="text-center">
+        Imagina un mundo donde los idiomas no son barreras, sino puentes. Donde cada palabra en un idioma desconocido se transforma en una clara y comprensible. ¿Un artículo en italiano? ¿Una receta en francés? ¿Un poema en ruso? Ingresa tu texto y escucha su melodía en español. Convierte curiosidad en conocimiento, todo al alcance de un clic.
+    </p>
+    <form id="processing-form" action="/translate_and_read" method="post">
+      <a href="/url_page" class="btn btn-secondary btn-block">Copiar directamente desde URL</a>
+            <div class="form-group">
+                <label for="api_key">Clave API de OpenAI:</label>
+                <input type="password" class="form-control" id="api_key" name="api_key" required>
+            </div>
+            <div class="form-group">
+                <label for="text">Texto:</label>
+                <textarea class="form-control" id="text" name="text" rows="4" required></textarea>
+            </div>
+              <button type="submit" class="btn btn-primary btn-block" id="submit-button">Traducir y Leer</button>
+          </form>
+          <div id="spinner" style="display: none;">
+              <div class="text-center mt-3">
+                  <div class="spinner-border text-primary" role="status">
+                      <span class="sr-only">Cargando...</span>
+                  </div>
+                  <p class="mt-2">Procesando... Por favor, espera.</p>
+              </div>
+          </div>
+      </div>
+
+      <script>
+          document.getElementById('processing-form').addEventListener('submit', function() {
+              document.getElementById('spinner').style.display = 'block'; // Mostrar el spinner
+              document.getElementById('submit-button').disabled = true; // Desactivar el botón de envío
+              document.getElementById('processing-form').style.display = 'none'; // Ocultar el formulario
+          });
+      </script>
+    </div>
+    <!-- Incluir Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
