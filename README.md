@@ -20,22 +20,27 @@ Este proyecto es una aplicación web desarrollada en Flask que utiliza la API de
 ## Instalación
 Para clonar y ejecutar este proyecto, necesitarás Git y Python instalados en tu máquina. Desde tu línea de comandos:
 
-```bash
 # Clona este repositorio
-$ git clone [URL del repositorio]
+```bash
+$ git clone https://github.com/adri-barreda/Narrador.git
+```
 
 # Ve al directorio del repositorio
+```bash
 $ cd nombre-del-repositorio
+```
 
 # Instala las dependencias
+```bash
 $ pip install -r requirements.txt
+```
 
 ## Uso
 Para ejecutar la aplicación, ejecuta el siguiente comando en tu terminal:
 
 ```bash
-Copy code
 $ python main.py
+```
 Abre tu navegador y visita http://localhost:81 para ver la aplicación en acción.
 
 ## Contribuciones
